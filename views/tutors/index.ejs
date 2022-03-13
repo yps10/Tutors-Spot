@@ -1,0 +1,32 @@
+<% layout('layouts/boilerplate')%>
+ 
+<div class="container">
+    <h1>All tutors</h1>
+
+    <% for (let tutor of tutors){%>
+    <div class="card mb-3">
+        <div class="row">
+            <div class="col-md-4">
+                <%if(tutor.images.length) {%>
+                <img class="img-fluid" alt="" src="<%=tutor.images[0].url%>">
+                <% }else {%>
+                <img class="img-fluid" alt=""
+                    src="https://res.cloudinary.com/dyltwgtdz/image/upload/v1628848083/camping/qekyn2nro1ju2kaxktma.jpg">
+                <% } %>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title"><%= tutor.title %> </h5>
+
+                    <p class="card-text"><%= tutor.description %></p>
+                    <p class="card-text">
+                        <small class="text-muted"><%= tutor.location%></small>
+                    </p>
+                    <a class="btn btn-primary" href="/tutors/<%=tutor._id%>">View <%=tutor.title%></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% }%>
+</div>
+ 
